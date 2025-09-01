@@ -20,6 +20,7 @@
         --light: #ebfcff;
         --yellow: #efedce;
         --middle: #aaf1ff;
+        --cream: #f5f5dc;
       }
 
       * {
@@ -52,7 +53,7 @@
         padding: 0 20px;
       }
 
-      /* Navigation */
+      /* Navigation - LARGER LOGO */
       nav {
         position: fixed;
         top: 0;
@@ -60,7 +61,7 @@
         width: 100%;
         background-color: var(--primary);
         color: white;
-        padding: 15px 0;
+        padding: 5px 0;
         z-index: 1000;
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
       }
@@ -71,11 +72,27 @@
         align-items: center;
       }
 
-      .logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: white;
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-link {
+        display: flex;
+        align-items: center;
         text-decoration: none;
+      }
+
+      .logo-img {
+        height: 80px; /* Increased logo size */
+        width: auto;
+        filter: brightness(0) invert(1);
+        transition: all 0.3s ease;
+      }
+
+      .logo-img:hover {
+        transform: scale(1.05);
       }
 
       .nav-links {
@@ -99,7 +116,7 @@
         left: 0;
         width: 0;
         height: 2px;
-        background-color: var(--accent);
+        background-color: var(--cream);
         transition: width 0.3s ease;
       }
 
@@ -116,7 +133,7 @@
         cursor: pointer;
       }
 
-      /* Mobile Menu */
+      /* Mobile Menu - LARGER LOGO */
       .mobile-menu {
         position: fixed;
         top: 0;
@@ -134,6 +151,25 @@
         left: 0;
       }
 
+      .mobile-logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 40px;
+        justify-content: center;
+      }
+
+      .mobile-logo-link {
+        display: flex;
+        justify-content: center;
+      }
+
+      .mobile-logo-img {
+        height: 80px; /* Increased logo size for mobile */
+        width: auto;
+        filter: brightness(0) invert(1);
+      }
+
       .mobile-nav-links {
         display: flex;
         flex-direction: column;
@@ -146,6 +182,11 @@
         font-size: 1.2rem;
         padding: 10px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: color 0.3s ease;
+      }
+
+      .mobile-nav-link:hover {
+        color: var(--cream);
       }
 
       .close-menu {
@@ -157,6 +198,11 @@
         color: white;
         font-size: 1.5rem;
         cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .close-menu:hover {
+        color: var(--cream);
       }
 
       .close-area {
@@ -177,7 +223,7 @@
         visibility: visible;
       }
 
-      /* Hero Section */
+      /* Hero Section - Adjusted padding to account for larger navbar */
       .hero {
         min-height: 100vh;
         display: flex;
@@ -190,7 +236,7 @@
         background-size: cover;
         background-position: center;
         color: white;
-        padding: 100px 0 60px;
+        padding: 130px 0 60px; /* Increased top padding */
         position: relative;
         overflow: hidden;
       }
@@ -417,6 +463,13 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
+        background: linear-gradient(45deg, #0b5fb0, #2ba3ec);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
       }
 
       .pastor-card:hover .pastor-img {
@@ -602,12 +655,14 @@
       .whatsapp-icon {
         font-size: 1.5rem;
         margin-right: 10px;
+        color: white;
       }
 
       .social-links {
         display: flex;
         gap: 15px;
         margin-top: 30px;
+        justify-content: center;
       }
 
       .social-link {
@@ -624,7 +679,8 @@
       }
 
       .social-link:hover {
-        background-color: var(--accent);
+        background-color: var(--cream);
+        color: var(--primary);
         transform: translateY(-3px);
       }
 
@@ -691,6 +747,10 @@
         .pastor-grid {
           grid-template-columns: 1fr;
         }
+
+        .logo-img {
+          height: 70px; /* Slightly smaller on tablet */
+        }
       }
 
       @media (max-width: 768px) {
@@ -713,6 +773,14 @@
         .contact-container {
           grid-template-columns: 1fr;
         }
+
+        .logo-img {
+          height: 60px; /* Slightly smaller on mobile */
+        }
+
+        .mobile-logo-img {
+          height: 70px; /* Adjusted for mobile */
+        }
       }
 
       @media (max-width: 576px) {
@@ -723,14 +791,39 @@
         .btn {
           padding: 12px 25px;
         }
+
+        .logo-img {
+          height: 50px; /* Adjusted for small mobile */
+        }
+
+        .mobile-logo-img {
+          height: 60px; /* Adjusted for small mobile */
+        }
+
+        nav {
+          padding: 8px 0; /* Slightly more padding on mobile */
+        }
+
+        .hero {
+          padding: 120px 0 60px; /* Adjusted for mobile */
+        }
       }
     </style>
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- Navigation - LARGER LOGO -->
     <nav>
       <div class="container nav-container">
-        <a href="#" class="logo">Julius Amoah</a>
+        <div class="logo-container">
+          <!-- Logo is now a link to the landing page -->
+          <a href="#" class="logo-link">
+            <img
+              src="assets/logo.png"
+              alt="Julius Amoah Logo"
+              class="logo-img"
+            />
+          </a>
+        </div>
         <div class="nav-links">
           <a href="#welcome" class="nav-link">Welcome</a>
           <a href="#services" class="nav-link">Services</a>
@@ -744,11 +837,21 @@
       </div>
     </nav>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu - LARGER LOGO -->
     <div class="mobile-menu" id="mobile-menu">
       <button class="close-menu">
         <i class="fas fa-times"></i>
       </button>
+      <div class="mobile-logo">
+        <!-- Mobile logo is also a link to the landing page -->
+        <a href="#" class="mobile-logo-link">
+          <img
+            src="assets/logo.png"
+            alt="Julius Amoah Logo"
+            class="mobile-logo-img"
+          />
+        </a>
+      </div>
       <div class="mobile-nav-links">
         <a href="#welcome" class="mobile-nav-link">Welcome</a>
         <a href="#services" class="mobile-nav-link">Services</a>
@@ -875,7 +978,7 @@
 
         <div class="pastor-grid">
           <div class="pastor-card fade-in">
-            <img src="assets/img3.jpg" alt="Pastor Julius" class="pastor-img" />
+            <div class="pastor-img">Julius - Celebrant</div>
             <div class="pastor-overlay">
               <h3 class="pastor-name">Julius Amoah</h3>
               <p>Professional Celebrant</p>
@@ -883,7 +986,7 @@
           </div>
 
           <div class="pastor-card fade-in">
-            <img src="assets/img2.jpg" alt="Pastor Julius" class="pastor-img" />
+            <div class="pastor-img">Julius - Bookkeeper</div>
             <div class="pastor-overlay">
               <h3 class="pastor-name">Julius Amoah</h3>
               <p>Certified Bookkeeper</p>
@@ -891,7 +994,7 @@
           </div>
 
           <div class="pastor-card fade-in">
-            <img src="assets/img1.jpg" alt="Pastor Julius" class="pastor-img" />
+            <div class="pastor-img">Julius - Pastor</div>
             <div class="pastor-overlay">
               <h3 class="pastor-name">Julius Amoah</h3>
               <p>Church Pastor</p>
@@ -902,7 +1005,7 @@
         <div class="welcome-content fade-in" style="margin-top: 50px">
           <p>
             Julius Amoah is the founder of Connect Global Intercession Prayer
-            Hub, International, and currently the residing Pastor of New Spring
+            Hub, International and currently the residing Pastor of New Spring
             Church, UK chapter.
           </p>
 
@@ -1140,6 +1243,23 @@
 
         fadeElems.forEach((elem) => {
           fadeObserver.observe(elem);
+        });
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return; // Don't scroll for logo link
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
         });
       });
     </script>
