@@ -463,13 +463,6 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
-        background: linear-gradient(45deg, #0b5fb0, #2ba3ec);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.5rem;
-        font-weight: bold;
       }
 
       .pastor-card:hover .pastor-img {
@@ -497,6 +490,50 @@
       .pastor-name {
         font-size: 1.5rem;
         margin-bottom: 10px;
+      }
+
+      /* About Images Section */
+      .about-images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 50px 0;
+      }
+
+      .about-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        height: 250px;
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Certification Section */
+      .certification {
+        background-color: var(--light);
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .certification-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .certification-logo {
+        max-width: 300px;
+        height: auto;
+        margin: 20px 0;
       }
 
       /* Process Section */
@@ -630,6 +667,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      .contact-link {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-link:hover {
+        color: var(--cream);
+        text-decoration: underline;
       }
 
       .whatsapp-btn {
@@ -816,7 +864,7 @@
       <div class="container nav-container">
         <div class="logo-container">
           <!-- Logo is now a link to the landing page -->
-          <a href="#" class="logo-link">
+          <a href="#hero" class="logo-link">
             <img
               src="assets/logo.png"
               alt="Julius Amoah Logo"
@@ -828,6 +876,7 @@
           <a href="#welcome" class="nav-link">Welcome</a>
           <a href="#services" class="nav-link">Services</a>
           <a href="#pastor" class="nav-link">About</a>
+          <a href="#certification" class="nav-link">Certification</a>
           <a href="#process" class="nav-link">How It Works</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
@@ -844,7 +893,7 @@
       </button>
       <div class="mobile-logo">
         <!-- Mobile logo is also a link to the landing page -->
-        <a href="#" class="mobile-logo-link">
+        <a href="#hero" class="mobile-logo-link">
           <img
             src="assets/logo.png"
             alt="Julius Amoah Logo"
@@ -856,6 +905,7 @@
         <a href="#welcome" class="mobile-nav-link">Welcome</a>
         <a href="#services" class="mobile-nav-link">Services</a>
         <a href="#pastor" class="mobile-nav-link">About</a>
+        <a href="#certification" class="mobile-nav-link">Certification</a>
         <a href="#process" class="mobile-nav-link">How It Works</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
       </div>
@@ -865,7 +915,7 @@
     <div class="close-area" id="close-area"></div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="hero" class="hero">
       <div class="container hero-content">
         <h1 class="hero-title">Julius Amoah</h1>
         <p class="hero-subtitle">Professionally Trained Celebrant</p>
@@ -978,7 +1028,12 @@
 
         <div class="pastor-grid">
           <div class="pastor-card fade-in">
-            <div class="pastor-img">Julius - Celebrant</div>
+            <img
+              src="assets/img2.jpg"
+              alt="Julius Amoah - Professional Celebrant"
+              class="pastor-img"
+              onerror="this.src='https://images.unsplash.com/photo-1580309237429-661ea7cd1d53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            />
             <div class="pastor-overlay">
               <h3 class="pastor-name">Julius Amoah</h3>
               <p>Professional Celebrant</p>
@@ -986,7 +1041,12 @@
           </div>
 
           <div class="pastor-card fade-in">
-            <div class="pastor-img">Julius - Bookkeeper</div>
+            <img
+              src="assets/img3.jpg"
+              alt="Julius Amoah - Certified Bookkeeper"
+              class="pastor-img"
+              onerror="this.src='https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            />
             <div class="pastor-overlay">
               <h3 class="pastor-name">Julius Amoah</h3>
               <p>Certified Bookkeeper</p>
@@ -994,13 +1054,50 @@
           </div>
 
           <div class="pastor-card fade-in">
-            <div class="pastor-img">Julius - Pastor</div>
+            <img
+              src="assets/img1.jpg"
+              alt="Julius Amoah - Church Pastor"
+              class="pastor-img"
+              onerror="this.src='https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+            />
             <div class="pastor-overlay">
               <h3 class="pastor-name">Julius Amoah</h3>
               <p>Church Pastor</p>
             </div>
           </div>
         </div>
+
+        <!-- Additional Images Section -->
+        <!-- <div class="about-images fade-in">
+          <div class="about-image">
+            <img
+              src="assets/about1.jpg"
+              alt="Julius conducting a ceremony"
+              onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
+            />
+          </div>
+          <div class="about-image">
+            <img
+              src="assets/about2.jpg"
+              alt="Julius with a couple"
+              onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
+            />
+          </div>
+          <div class="about-image">
+            <img
+              src="assets/about3.jpg"
+              alt="Julius speaking at an event"
+              onerror="this.src='https://images.unsplash.com/photo-1541252260731-041634c6e6a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
+            />
+          </div>
+          <div class="about-image">
+            <img
+              src="assets/about4.jpg"
+              alt="Julius with family"
+              onerror="this.src='https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
+            />
+          </div>
+        </div> -->
 
         <div class="welcome-content fade-in" style="margin-top: 50px">
           <p>
@@ -1037,6 +1134,39 @@
             He is married to Lady Millicent Amoah, founder and leader of SHE
             SOARS, a thriving women's ministry. They are both blessed with two
             amazing children.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section id="certification" class="certification">
+      <div class="container">
+        <h2 class="section-title">Professional Certification</h2>
+        <div class="certification-content fade-in">
+          <p>
+            I am proud to be trained and accredited by The Academy of
+            Professional Celebrants, ensuring the highest standards of ceremony
+            creation and delivery.
+          </p>
+
+          <img
+            src="assets/certLogo.webp"
+            alt="Academy of Professional Celebrants"
+            class="certification-logo"
+            onerror="this.src='https://placehold.co/600x400/0b5fb0/white?text=Academy+of+Professional+Celebrants'"
+          />
+
+          <p>
+            The Academy of Professional Celebrants is a leading training
+            organization for celebrants in the UK, providing comprehensive
+            training and ongoing support to ensure excellence in celebrant
+            services.
+          </p>
+
+          <p>
+            As an accredited member, I adhere to their code of ethics and
+            maintain full public liability insurance for your peace of mind.
           </p>
         </div>
       </div>
@@ -1093,7 +1223,7 @@
 
         <div class="contact-container">
           <div class="contact-form fade-in">
-            <form>
+            <form id="contactForm">
               <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" class="form-control" required />
@@ -1138,14 +1268,18 @@
               <div class="contact-icon">
                 <i class="fas fa-envelope"></i>
               </div>
-              <span>email@juliusamoah.com</span>
+              <a href="mailto:Julius@jkaconsultancy.co.uk" class="contact-link"
+                >Julius@jkaconsultancy.co.uk</a
+              >
             </div>
 
             <div class="contact-detail">
               <div class="contact-icon">
                 <i class="fas fa-phone"></i>
               </div>
-              <span>+44 123 456 7890</span>
+              <a href="tel:+441234567890" class="contact-link"
+                >+44 123 456 7890</a
+              >
             </div>
 
             <div class="contact-detail">
@@ -1156,7 +1290,7 @@
             </div>
 
             <a
-              href="https://wa.me/441234567890?text=Hello%20Julius,%20I%20would%20like%20to%20inquire%20about%20your%20celebrant%20services"
+              href="https://wa.me/447568570759?text=Hello%20Julius,%20I%20would%20like%20to%20inquire%20about%20your%20celebrant%20services"
               target="_blank"
               class="whatsapp-btn"
             >
@@ -1165,14 +1299,25 @@
             </a>
 
             <div class="social-links">
-              <a href="#" class="social-link"
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                class="social-link"
                 ><i class="fab fa-facebook-f"></i
               ></a>
-              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-link"
+              <a href="https://twitter.com/" target="_blank" class="social-link"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="social-link"
                 ><i class="fab fa-instagram"></i
               ></a>
-              <a href="#" class="social-link"
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                class="social-link"
                 ><i class="fab fa-linkedin-in"></i
               ></a>
             </div>
@@ -1262,6 +1407,17 @@
           }
         });
       });
+
+      // Form submission handling
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you for your message! Julius will be in touch with you soon."
+          );
+          this.reset();
+        });
     </script>
   </body>
 </html>
