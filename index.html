@@ -344,6 +344,7 @@
       /* Sections */
       section {
         padding: 80px 0;
+        position: relative;
       }
 
       .section-title {
@@ -410,7 +411,7 @@
       }
 
       .service-icon {
-        font-size: 3rem;
+        font-size: 2.5rem;
         text-align: center;
         padding: 25px 0 15px;
         color: var(--accent);
@@ -443,53 +444,128 @@
         background-color: white;
       }
 
-      .pastor-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
+      .pastor-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin-top: 40px;
       }
 
-      .pastor-card {
+      .pastor-main-image {
         position: relative;
-        border-radius: 15px;
+        width: 100%;
+        max-width: 500px;
+        border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        height: 400px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       }
 
       .pastor-img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        display: block;
         transition: transform 0.5s ease;
       }
 
-      .pastor-card:hover .pastor-img {
-        transform: scale(1.05);
+      .pastor-main-image:hover .pastor-img {
+        transform: scale(1.03);
       }
 
-      .pastor-overlay {
+      .pastor-badges {
         position: absolute;
-        bottom: 0;
+        bottom: 20px;
         left: 0;
-        width: 100%;
-        padding: 30px;
-        background: linear-gradient(transparent, rgba(11, 95, 176, 0.8));
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        padding: 0 15px;
+      }
+
+      .badge {
+        background: rgba(11, 95, 176, 0.85);
         color: white;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.4s ease;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
       }
 
-      .pastor-card:hover .pastor-overlay {
-        opacity: 1;
-        transform: translateY(0);
+      .pastor-details {
+        width: 100%;
+        max-width: 800px;
       }
 
-      .pastor-name {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
+      .pastor-bio h3 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+
+      .tagline {
+        text-align: center;
+        font-style: italic;
+        color: var(--secondary);
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+      }
+
+      .bio-highlights {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .highlight {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .highlight i {
+        font-size: 1.8rem;
+        color: var(--accent);
+        margin-top: 5px;
+      }
+
+      .highlight h4 {
+        margin-bottom: 8px;
+        color: var(--primary);
+      }
+
+      .pastor-personal {
+        background: var(--light);
+        padding: 25px;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent);
+      }
+
+      .pastor-personal h4 {
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .pastor-quote {
+        margin-top: 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+      }
+
+      blockquote {
+        margin: 0;
+        font-style: italic;
+        color: var(--secondary);
+        line-height: 1.6;
       }
 
       /* About Images Section */
@@ -648,6 +724,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
       }
 
       .contact-detail {
@@ -761,7 +838,7 @@
           transform: scale(1.05);
           box-shadow: 0 8px 25px rgba(43, 163, 236, 0.4);
         }
-        100% {
+        to {
           transform: scale(1);
           box-shadow: 0 5px 15px rgba(43, 163, 236, 0.3);
         }
@@ -792,12 +869,36 @@
           display: block;
         }
 
-        .pastor-grid {
-          grid-template-columns: 1fr;
-        }
-
         .logo-img {
           height: 70px; /* Slightly smaller on tablet */
+        }
+
+        /* Pastor section responsive */
+        .pastor-profile {
+          flex-direction: column;
+        }
+
+        .pastor-main-image {
+          flex: 0 0 100%;
+        }
+
+        .pastor-details {
+          flex: 0 0 100%;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .pastor-profile {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+
+        .pastor-main-image {
+          flex: 0 0 40%;
+        }
+
+        .pastor-details {
+          flex: 0 0 55%;
         }
       }
 
@@ -829,6 +930,17 @@
         .mobile-logo-img {
           height: 70px; /* Adjusted for mobile */
         }
+
+        .pastor-badges {
+          position: static;
+          margin-top: 15px;
+          justify-content: center;
+        }
+
+        .highlight {
+          flex-direction: column;
+          text-align: center;
+        }
       }
 
       @media (max-width: 576px) {
@@ -854,6 +966,10 @@
 
         .hero {
           padding: 120px 0 60px; /* Adjusted for mobile */
+        }
+
+        .service-icon {
+          font-size: 2rem;
         }
       }
     </style>
@@ -919,9 +1035,7 @@
       <div class="container hero-content">
         <h1 class="hero-title">Julius Amoah</h1>
         <p class="hero-subtitle">Professionally Trained Celebrant</p>
-        <p class="hero-tagline">
-          Creating Ceremonies with Heart and Meaning 💫
-        </p>
+        <p class="hero-tagline">Creating Ceremonies with Heart and Meaning</p>
         <a href="#contact" class="btn btn-hero">Book a Free Consultation</a>
       </div>
     </section>
@@ -929,7 +1043,7 @@
     <!-- Welcome Section -->
     <section id="welcome" class="welcome">
       <div class="container">
-        <h2 class="section-title">Welcome! 👋</h2>
+        <h2 class="section-title">Welcome</h2>
         <div class="welcome-content">
           <p>
             I am Julius Amoah, a professional celebrant dedicated to crafting
@@ -945,7 +1059,7 @@
             class="fade-in"
             style="font-size: 1.3rem; font-weight: 600; color: var(--accent)"
           >
-            Let's create a ceremony that feels truly yours. 🌟
+            Let's create a ceremony that feels truly yours.
           </p>
         </div>
       </div>
@@ -954,7 +1068,7 @@
     <!-- Services Section -->
     <section id="services" class="services">
       <div class="container">
-        <h2 class="section-title">Services Offered 💒</h2>
+        <h2 class="section-title">Services Offered</h2>
         <p class="welcome-content" style="margin-bottom: 50px">
           As a professionally trained and certified celebrant, I offer bespoke
           ceremonies tailored to you with sensitivity and care to make each
@@ -963,7 +1077,7 @@
 
         <div class="services-grid">
           <div class="service-card fade-in">
-            <div class="service-icon">💖</div>
+            <div class="service-icon"><i class="fas fa-ring"></i></div>
             <div class="service-content">
               <h3 class="service-title">Wedding Ceremonies</h3>
               <p>
@@ -974,7 +1088,7 @@
           </div>
 
           <div class="service-card fade-in">
-            <div class="service-icon">🕊️</div>
+            <div class="service-icon"><i class="fas fa-dove"></i></div>
             <div class="service-content">
               <h3 class="service-title">Funeral Ceremonies & Vow Renewals</h3>
               <p>
@@ -986,7 +1100,7 @@
           </div>
 
           <div class="service-card fade-in">
-            <div class="service-icon">👶</div>
+            <div class="service-icon"><i class="fas fa-baby"></i></div>
             <div class="service-content">
               <h3 class="service-title">Naming Ceremonies</h3>
               <p>
@@ -997,7 +1111,7 @@
           </div>
 
           <div class="service-card fade-in">
-            <div class="service-icon">🌟</div>
+            <div class="service-icon"><i class="fas fa-star"></i></div>
             <div class="service-content">
               <h3 class="service-title">Other Ceremonies</h3>
               <p>
@@ -1010,7 +1124,7 @@
 
         <div class="accreditation fade-in">
           <h3 class="service-title" style="color: white">
-            Trained & Accredited 🎓
+            Trained & Accredited
           </h3>
           <p>
             I am fully trained, accredited, and insured through The Academy of
@@ -1025,80 +1139,85 @@
     <!-- Pastor Section -->
     <section id="pastor" class="pastor">
       <div class="container">
-        <h2 class="section-title">About Pastor Julius 🙏</h2>
+        <h2 class="section-title">About Pastor Julius</h2>
 
-        <div class="pastor-grid">
-          <div class="pastor-card fade-in">
+        <div class="pastor-profile fade-in">
+          <div class="pastor-main-image">
             <img
-              src="assets/img2.jpg"
-              alt="Julius Amoah - Professional Celebrant"
+              src="assets/img3.jpg"
+              alt="Julius Amoah - Professional Celebrant & Pastor"
               class="pastor-img"
               onerror="this.src='https://images.unsplash.com/photo-1580309237429-661ea7cd1d53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
             />
-            <div class="pastor-overlay">
-              <h3 class="pastor-name">Julius Amoah</h3>
-              <p>Professional Celebrant</p>
-            </div>
+            <!-- <div class="pastor-badges">
+              <div class="badge">Professional Celebrant</div>
+              <div class="badge">Certified Bookkeeper</div>
+              <div class="badge">Church Pastor</div>
+            </div> -->
           </div>
 
-          <div class="pastor-card fade-in">
-            <img
-              src="assets/img3.jpg"
-              alt="Julius Amoah - Certified Bookkeeper"
-              class="pastor-img"
-              onerror="this.src='https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
-            />
-            <div class="pastor-overlay">
-              <h3 class="pastor-name">Julius Amoah</h3>
-              <p>Certified Bookkeeper</p>
-            </div>
-          </div>
+          <div class="pastor-details">
+            <div class="pastor-bio">
+              <h3>Julius Amoah</h3>
+              <p class="tagline">
+                Creating meaningful ceremonies with compassion and
+                professionalism
+              </p>
 
-          <div class="pastor-card fade-in">
-            <img
-              src="assets/img1.jpg"
-              alt="Julius Amoah - Church Pastor"
-              class="pastor-img"
-              onerror="this.src='https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
-            />
-            <div class="pastor-overlay">
-              <h3 class="pastor-name">Julius Amoah</h3>
-              <p>Church Pastor</p>
+              <div class="bio-highlights">
+                <div class="highlight">
+                  <i class="fas fa-church"></i>
+                  <div>
+                    <h4>Pastoral Leadership</h4>
+                    <p>
+                      Residing Pastor of New Spring Church, UK chapter and
+                      founder of Connect Global Intercession Prayer Hub
+                      International
+                    </p>
+                  </div>
+                </div>
+
+                <div class="highlight">
+                  <i class="fas fa-certificate"></i>
+                  <div>
+                    <h4>Professional Certification</h4>
+                    <p>
+                      Trained and accredited by The Academy of Professional
+                      Celebrants for weddings, vow renewals, funerals, and
+                      naming ceremonies
+                    </p>
+                  </div>
+                </div>
+
+                <div class="highlight">
+                  <i class="fas fa-book"></i>
+                  <div>
+                    <h4>Financial Expertise</h4>
+                    <p>
+                      Certified bookkeeper (ICB UK) and student affiliate of
+                      ACCA UK, Director of JKA Consultancy and Bookkeeping Ltd
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pastor-personal">
+              <h4>Personal Life</h4>
+              <p>
+                Married to Lady Millicent Amoah, founder and leader of SHE SOARS
+                women's ministry. Blessed with two children.
+              </p>
+
+              <!-- <div class="pastor-quote">
+                <blockquote>
+                  "I believe in creating ceremonies that honor your unique story
+                  with warmth, respect, and spiritual significance."
+                </blockquote>
+              </div> -->
             </div>
           </div>
         </div>
-
-        <!-- Additional Images Section -->
-        <!-- <div class="about-images fade-in">
-          <div class="about-image">
-            <img
-              src="assets/about1.jpg"
-              alt="Julius conducting a ceremony"
-              onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
-            />
-          </div>
-          <div class="about-image">
-            <img
-              src="assets/about2.jpg"
-              alt="Julius with a couple"
-              onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
-            />
-          </div>
-          <div class="about-image">
-            <img
-              src="assets/about3.jpg"
-              alt="Julius speaking at an event"
-              onerror="this.src='https://images.unsplash.com/photo-1541252260731-041634c6e6a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
-            />
-          </div>
-          <div class="about-image">
-            <img
-              src="assets/about4.jpg"
-              alt="Julius with family"
-              onerror="this.src='https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'"
-            />
-          </div>
-        </div> -->
 
         <div class="welcome-content fade-in" style="margin-top: 50px">
           <p>
@@ -1176,7 +1295,7 @@
     <!-- Process Section -->
     <section id="process" class="process">
       <div class="container">
-        <h2 class="section-title">How It Works 🔄</h2>
+        <h2 class="section-title">How It Works</h2>
         <p class="welcome-content" style="margin-bottom: 50px">
           Your Story, Your Ceremony - a simple 4-step process to create your
           perfect ceremony
@@ -1216,7 +1335,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2 class="section-title" style="color: white">Contact 📞</h2>
+        <h2 class="section-title" style="color: white">Contact</h2>
         <p class="welcome-content" style="color: white; margin-bottom: 50px">
           Let's Create Something Beautiful Together. Whether you're ready to
           book or just exploring options, I'd love to hear from you.
@@ -1299,7 +1418,7 @@
               Message on WhatsApp
             </a>
 
-            <div class="social-links">
+            <!-- <div class="social-links">
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
@@ -1321,7 +1440,7 @@
                 class="social-link"
                 ><i class="fab fa-linkedin-in"></i
               ></a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
