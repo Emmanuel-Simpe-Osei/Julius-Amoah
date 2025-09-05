@@ -398,6 +398,7 @@
 
       .welcome-content p {
         margin-bottom: 25px;
+        text-align: left;
       }
 
       .cta-container {
@@ -518,6 +519,7 @@
         gap: 10px;
         flex-wrap: wrap;
         padding: 0 15px;
+        display: none; /* Hidden as per request */
       }
 
       .badge {
@@ -602,6 +604,7 @@
         background: white;
         border-radius: 8px;
         border-left: 4px solid var(--primary);
+        display: none; /* Hidden as per request */
       }
 
       blockquote {
@@ -863,6 +866,7 @@
         gap: 15px;
         margin-top: 30px;
         justify-content: center;
+        display: none; /* Hidden as per request */
       }
 
       .social-link {
@@ -1231,10 +1235,12 @@
           <div class="service-card fade-in">
             <div class="service-icon"><i class="fas fa-ring"></i></div>
             <div class="service-content">
-              <h3 class="service-title">Wedding Ceremonies</h3>
+              <h3 class="service-title">Wedding Ceremonies & Vow Renewals</h3>
               <p>
                 Whether big celebration or intimate elopement, your wedding
-                ceremony should reflect your unique love story.
+                ceremony should reflect your unique love story. Also offering
+                meaningful vow renewal ceremonies to celebrate your continued
+                journey together.
               </p>
               <div class="service-cta">
                 <a href="#contact" class="btn">Inquire About Weddings</a>
@@ -1245,11 +1251,10 @@
           <div class="service-card fade-in">
             <div class="service-icon"><i class="fas fa-dove"></i></div>
             <div class="service-content">
-              <h3 class="service-title">Funeral Ceremonies & Vow Renewals</h3>
+              <h3 class="service-title">Funeral Ceremonies</h3>
               <p>
                 Compassionate, respectful services that honour your loved one's
-                life, character, and legacy, as well as meaningful vow renewal
-                ceremonies.
+                life, character, and legacy.
               </p>
               <div class="service-cta">
                 <a href="#contact" class="btn">Learn More</a>
@@ -1311,13 +1316,14 @@
               src="assets/img3.jpg"
               alt="Julius Amoah - Professional Celebrant & Pastor"
               class="pastor-img"
-              onerror="this.src='https://images.unsplash.com/photo-1580309237429-661ea7cd1d53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'"
+              onerror="this.src='https://placehold.co/600x400/0b5fb0/white?text=Julius+Amoah+-+Professional+Celebrant+%26+Pastor'"
             />
-            <!-- <div class="pastor-badges">
-              <div class="badge">Professional Celebrant</div>
-              <div class="badge">Certified Bookkeeper</div>
-              <div class="badge">Church Pastor</div>
-            </div> -->
+            <div class="pastor-badges">
+              <span class="badge">Certified Celebrant</span>
+              <span class="badge">Bookkeeper (ICB UK)</span>
+              <span class="badge">ACCA Student Affiliate</span>
+              <span class="badge">Pastoral Leader</span>
+            </div>
           </div>
 
           <div class="pastor-details">
@@ -1374,10 +1380,10 @@
               </p>
 
               <!-- <div class="pastor-quote">
-                <blockquote>
-                  "I believe in creating ceremonies that honor your unique story with warmth, respect, and spiritual significance."
-                </blockquote>
-              </div> -->
+            <blockquote>
+              "I believe in creating ceremonies that honor your unique story with warmth, respect, and spiritual significance."
+            </blockquote>
+          </div> -->
             </div>
           </div>
         </div>
@@ -1412,13 +1418,27 @@
             Accounting and Bookkeeping firm registered and located in the United
             Kingdom.
           </p>
+
+          <p>
+            Julius is a professionally trained celebrant who creates and
+            conducts personalized ceremonies that reflect your beliefs, values,
+            and story. Whether you're planning a wedding, vow renewal, funeral,
+            or naming ceremony, he works closely with you to craft a meaningful
+            and memorable event.
+          </p>
+
+          <p>
+            With a compassionate approach and attention to detail, Julius
+            ensures that each ceremony is unique and tailored to your specific
+            wishes. He is dedicated to providing a professional, supportive
+            service that helps you celebrate life's important moments with
+            dignity and joy.
+          </p>
         </div>
 
         <div class="cta-container fade-in">
           <a href="#contact" class="btn">Schedule a Consultation</a>
-          <a href="#certification" class="btn btn-secondary"
-            >View Credentials</a
-          >
+          <a href="#certification" class="btn">View Credentials</a>
         </div>
       </div>
     </section>
