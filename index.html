@@ -15,12 +15,14 @@
     <style>
       :root {
         --primary: #0b5fb0;
+        --primary-dark: #094b8a;
         --secondary: #0f214d;
         --accent: #2ba3ec;
-        --light: #ebfcff;
+        --light: #f8fafc;
         --yellow: #efedce;
-        --middle: #aaf1ff;
         --cream: #f5f5dc;
+        --text: #333333;
+        --text-light: #6c757d;
       }
 
       * {
@@ -31,7 +33,7 @@
 
       body {
         font-family: "Poppins", sans-serif;
-        color: var(--secondary);
+        color: var(--text);
         background-color: var(--light);
         line-height: 1.6;
         scroll-behavior: smooth;
@@ -53,7 +55,7 @@
         padding: 0 20px;
       }
 
-      /* Navigation - LARGER LOGO */
+      /* Navigation */
       nav {
         position: fixed;
         top: 0;
@@ -85,7 +87,7 @@
       }
 
       .logo-img {
-        height: 80px; /* Increased logo size */
+        height: 70px;
         width: auto;
         filter: brightness(0) invert(1);
         transition: all 0.3s ease;
@@ -131,78 +133,86 @@
         color: white;
         font-size: 1.5rem;
         cursor: pointer;
+        z-index: 1002;
       }
 
-      /* Mobile Menu - LARGER LOGO */
+      /* Mobile Menu - REDESIGNED */
       .mobile-menu {
         position: fixed;
         top: 0;
         left: -100%;
-        width: 80%;
+        width: 85%;
         height: 100vh;
-        background-color: var(--secondary);
+        background: linear-gradient(
+          to bottom,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
         z-index: 1001;
-        padding: 80px 30px 30px;
+        padding: 100px 30px 30px;
         transition: left 0.4s ease;
-        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .mobile-menu.open {
         left: 0;
       }
 
-      .mobile-logo {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 40px;
-        justify-content: center;
-      }
-
-      .mobile-logo-link {
-        display: flex;
-        justify-content: center;
-      }
-
-      .mobile-logo-img {
-        height: 80px; /* Increased logo size for mobile */
-        width: auto;
-        filter: brightness(0) invert(1);
-      }
-
       .mobile-nav-links {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 25px;
       }
 
       .mobile-nav-link {
         color: white;
         text-decoration: none;
-        font-size: 1.2rem;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: color 0.3s ease;
+        font-size: 1.3rem;
+        padding: 15px 20px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       }
 
       .mobile-nav-link:hover {
-        color: var(--cream);
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(5px);
+      }
+
+      .mobile-nav-link i {
+        font-size: 1.2rem;
+        width: 25px;
+        text-align: center;
       }
 
       .close-menu {
         position: absolute;
-        top: 20px;
-        right: 20px;
-        background: none;
+        top: 25px;
+        right: 25px;
+        background: rgba(255, 255, 255, 0.1);
         border: none;
         color: white;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         cursor: pointer;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .close-menu:hover {
-        color: var(--cream);
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
       }
 
       .close-area {
@@ -211,7 +221,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7);
         z-index: 1000;
         opacity: 0;
         visibility: hidden;
@@ -223,7 +233,7 @@
         visibility: visible;
       }
 
-      /* Hero Section - Adjusted padding to account for larger navbar */
+      /* Hero Section */
       .hero {
         min-height: 100vh;
         display: flex;
@@ -236,31 +246,9 @@
         background-size: cover;
         background-position: center;
         color: white;
-        padding: 130px 0 60px; /* Increased top padding */
+        padding: 100px 0 60px;
         position: relative;
         overflow: hidden;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23EBFCFF" fill-opacity="0.05" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-        background-size: cover;
-        background-position: bottom;
-        animation: wave 15s linear infinite;
-      }
-
-      @keyframes wave {
-        0% {
-          background-position-x: 0;
-        }
-        100% {
-          background-position-x: 1440px;
-        }
       }
 
       .hero-content {
@@ -277,7 +265,6 @@
         opacity: 0;
         transform: translateY(30px);
         animation: fadeInUp 1s forwards 0.5s;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
 
       .hero-subtitle {
@@ -286,7 +273,6 @@
         opacity: 0;
         transform: translateY(30px);
         animation: fadeInUp 1s forwards 0.8s;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
       }
 
       .hero-tagline {
@@ -296,7 +282,6 @@
         opacity: 0;
         transform: translateY(30px);
         animation: fadeInUp 1s forwards 1.1s;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
       }
 
       .btn {
@@ -309,31 +294,9 @@
         text-decoration: none;
         transition: all 0.3s ease;
         box-shadow: 0 5px 15px rgba(43, 163, 236, 0.3);
-        position: relative;
-        overflow: hidden;
         border: none;
         cursor: pointer;
         font-size: 1.1rem;
-      }
-
-      .btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        transition: all 0.5s ease;
-      }
-
-      .btn:hover::before {
-        left: 100%;
       }
 
       .btn:hover {
@@ -344,7 +307,7 @@
       .btn-hero {
         opacity: 0;
         transform: translateY(30px);
-        animation: fadeInUp 1s forwards 1.4s, pulse 2s infinite 2.5s;
+        animation: fadeInUp 1s forwards 1.4s;
       }
 
       .btn-secondary {
@@ -398,7 +361,6 @@
 
       .welcome-content p {
         margin-bottom: 25px;
-        text-align: left;
       }
 
       .cta-container {
@@ -429,9 +391,6 @@
         transition: all 0.4s ease;
         position: relative;
         top: 0;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
       }
 
       .service-card:hover {
@@ -449,9 +408,9 @@
       .service-content {
         padding: 0 25px 25px;
         text-align: center;
-        flex-grow: 1;
         display: flex;
         flex-direction: column;
+        height: 100%;
       }
 
       .service-title {
@@ -476,69 +435,96 @@
         box-shadow: 0 10px 30px rgba(11, 95, 176, 0.15);
       }
 
-      /* Pastor Section */
+      /* Pastor Section - REDESIGNED */
       .pastor {
-        background-color: white;
+        background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pastor::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        background: var(--primary);
+        opacity: 0.05;
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      .pastor::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: var(--accent);
+        opacity: 0.05;
+        border-radius: 50%;
+        z-index: 0;
       }
 
       .pastor-profile {
         display: flex;
         flex-direction: column;
-        align-items: center;
         gap: 40px;
-        margin-top: 40px;
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 1;
+      }
+
+      @media (min-width: 992px) {
+        .pastor-profile {
+          flex-direction: row;
+          align-items: flex-start;
+        }
       }
 
       .pastor-main-image {
+        flex: 1;
         position: relative;
-        width: 100%;
-        max-width: 500px;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       }
 
       .pastor-img {
         width: 100%;
         height: auto;
-        display: block;
-        transition: transform 0.5s ease;
+        border-radius: 12px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
       }
 
-      .pastor-main-image:hover .pastor-img {
-        transform: scale(1.03);
+      .pastor-img:hover {
+        transform: scale(1.02);
       }
 
       .pastor-badges {
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-        right: 0;
         display: flex;
-        justify-content: center;
-        gap: 10px;
         flex-wrap: wrap;
-        padding: 0 15px;
-        display: none; /* Hidden as per request */
+        gap: 10px;
+        margin-top: 20px;
+        justify-content: center;
       }
 
       .badge {
-        background: rgba(11, 95, 176, 0.85);
+        background: var(--primary);
         color: white;
         padding: 8px 15px;
-        border-radius: 20px;
+        border-radius: 50px;
         font-size: 0.85rem;
         font-weight: 500;
       }
 
       .pastor-details {
-        width: 100%;
-        max-width: 800px;
+        flex: 1.5;
       }
 
       .pastor-bio h3 {
-        color: var(--primary);
         font-size: 2rem;
+        color: var(--primary);
         margin-bottom: 5px;
         text-align: center;
       }
@@ -546,9 +532,31 @@
       .tagline {
         text-align: center;
         font-style: italic;
-        color: var(--secondary);
+        color: var(--text-light);
         margin-bottom: 30px;
         font-size: 1.1rem;
+        position: relative;
+        padding: 0 20px;
+      }
+      /* 
+      .tagline::before,
+      .tagline::after {
+        content: """;
+        font-size: 2rem;
+        color: var(--primary);
+        position: absolute;
+        opacity: 0.3;
+      } */
+
+      .tagline::before {
+        left: 0;
+        top: -10px;
+      }
+
+      .tagline::after {
+        right: 0;
+        bottom: -20px;
+        transform: rotate(180deg);
       }
 
       .bio-highlights {
@@ -566,12 +574,20 @@
         background: white;
         border-radius: 8px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .highlight:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        background-color: #f8f9fa;
       }
 
       .highlight i {
         font-size: 1.8rem;
         color: var(--accent);
         margin-top: 5px;
+        flex-shrink: 0;
       }
 
       .highlight h4 {
@@ -584,6 +600,7 @@
         padding: 25px;
         border-radius: 8px;
         border-left: 4px solid var(--accent);
+        margin-top: 30px;
       }
 
       .pastor-personal h4 {
@@ -598,101 +615,120 @@
         color: var(--accent);
       }
 
-      .pastor-quote {
-        margin-top: 20px;
-        padding: 20px;
+      /* Bio Cards Section */
+      .bio-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .bio-card {
         background: white;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        display: none; /* Hidden as per request */
-      }
-
-      blockquote {
-        margin: 0;
-        font-style: italic;
-        color: var(--secondary);
-        line-height: 1.6;
-      }
-
-      /* FAQ Section */
-      .faq {
-        background-color: var(--light);
-      }
-
-      .faq-container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .faq-item {
-        margin-bottom: 20px;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      }
-
-      .faq-question {
-        background: white;
-        padding: 20px;
-        cursor: pointer;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+      }
+
+      .bio-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .bio-card h4 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        display: flex;
         align-items: center;
-        font-weight: 600;
-        transition: background-color 0.3s ease;
+        gap: 10px;
       }
 
-      .faq-question:hover {
-        background-color: #f9f9f9;
+      .bio-card h4 i {
+        color: var(--accent);
       }
 
-      .faq-question i {
-        transition: transform 0.3s ease;
-      }
-
-      .faq-answer {
-        background: white;
-        padding: 0 20px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease;
-      }
-
-      .faq-item.active .faq-question i {
-        transform: rotate(180deg);
-      }
-
-      .faq-item.active .faq-answer {
-        max-height: 500px;
-        padding: 20px;
-      }
-
-      .faq-cta {
-        text-align: center;
-        margin-top: 40px;
-      }
-
-      /* Certification Section */
+      /* Certification Section - REDESIGNED */
       .certification {
-        background-color: var(--light);
-        padding: 60px 0;
-        text-align: center;
+        background: linear-gradient(to bottom, var(--light) 0%, white 100%);
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .certification::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        left: -100px;
+        width: 300px;
+        height: 300px;
+        background: var(--primary);
+        opacity: 0.05;
+        border-radius: 50%;
+        z-index: 0;
       }
 
       .certification-content {
         max-width: 800px;
         margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .certification-logo-container {
+        margin: 30px 0;
+        padding: 30px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        display: inline-block;
       }
 
       .certification-logo {
         max-width: 300px;
         height: auto;
-        margin: 20px 0;
+      }
+
+      .certification-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .certification-card {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .certification-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .certification-card i {
+        font-size: 2.5rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+      }
+
+      .certification-card h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
       }
 
       /* Process Section */
       .process {
-        background-color: var(--middle);
+        background-color: white;
+        padding: 80px 0;
       }
 
       .process-steps {
@@ -703,13 +739,19 @@
       }
 
       .step {
-        background-color: white;
-        padding: 30px;
+        background-color: var(--light);
+        padding: 40px 25px 25px;
         border-radius: 15px;
         text-align: center;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         position: relative;
         counter-increment: step-counter;
+        transition: all 0.3s ease;
+      }
+
+      .step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
       }
 
       .step::before {
@@ -737,23 +779,61 @@
         margin: 15px 0;
       }
 
-      /* Contact Section */
+      /* Contact Section - REDESIGNED */
       .contact {
-        background-color: var(--primary);
+        background: linear-gradient(
+          to right,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
         color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      .contact::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -80px;
+        width: 250px;
+        height: 250px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        z-index: 0;
       }
 
       .contact-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: 1fr;
         gap: 50px;
+        position: relative;
+        z-index: 1;
+      }
+
+      @media (min-width: 992px) {
+        .contact-container {
+          grid-template-columns: 1fr 1fr;
+        }
       }
 
       .contact-form {
         background-color: white;
-        padding: 30px;
+        padding: 40px;
         border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
       }
 
       .form-group {
@@ -802,7 +882,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
       }
 
       .contact-detail {
@@ -815,19 +894,26 @@
         font-size: 1.5rem;
         color: var(--accent);
         margin-right: 15px;
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+      }
+
+      .contact-detail:hover .contact-icon {
+        background-color: var(--accent);
+        color: white;
       }
 
       .contact-link {
         color: white;
         text-decoration: none;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
       }
 
       .contact-link:hover {
@@ -858,34 +944,6 @@
       .whatsapp-icon {
         font-size: 1.5rem;
         margin-right: 10px;
-        color: white;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 15px;
-        margin-top: 30px;
-        justify-content: center;
-        display: none; /* Hidden as per request */
-      }
-
-      .social-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-      }
-
-      .social-link:hover {
-        background-color: var(--cream);
-        color: var(--primary);
-        transform: translateY(-3px);
       }
 
       /* Footer */
@@ -915,45 +973,6 @@
         text-decoration: underline;
       }
 
-      /* Privacy Policy Modal */
-      .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        z-index: 1002;
-        overflow: auto;
-        padding: 20px;
-      }
-
-      .modal-content {
-        background-color: white;
-        margin: 5% auto;
-        padding: 30px;
-        border-radius: 10px;
-        max-width: 800px;
-        position: relative;
-        max-height: 80vh;
-        overflow-y: auto;
-      }
-
-      .close-modal {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: var(--secondary);
-        transition: color 0.3s ease;
-      }
-
-      .close-modal:hover {
-        color: var(--primary);
-      }
-
       /* Animations */
       @keyframes fadeInUp {
         from {
@@ -963,21 +982,6 @@
         to {
           opacity: 1;
           transform: translateY(0);
-        }
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          box-shadow: 0 5px 15px rgba(43, 163, 236, 0.3);
-        }
-        50% {
-          transform: scale(1.05);
-          box-shadow: 0 8px 25px rgba(43, 163, 236, 0.4);
-        }
-        to {
-          transform: scale(1);
-          box-shadow: 0 5px 15px rgba(43, 163, 236, 0.3);
         }
       }
 
@@ -1005,38 +1009,6 @@
         .menu-toggle {
           display: block;
         }
-
-        .logo-img {
-          height: 70px; /* Slightly smaller on tablet */
-        }
-
-        /* Pastor section responsive */
-        .pastor-profile {
-          flex-direction: column;
-        }
-
-        .pastor-main-image {
-          flex: 0 0 100%;
-        }
-
-        .pastor-details {
-          flex: 0 0 100%;
-        }
-      }
-
-      @media (min-width: 992px) {
-        .pastor-profile {
-          flex-direction: row;
-          align-items: flex-start;
-        }
-
-        .pastor-main-image {
-          flex: 0 0 40%;
-        }
-
-        .pastor-details {
-          flex: 0 0 55%;
-        }
       }
 
       @media (max-width: 768px) {
@@ -1056,22 +1028,9 @@
           font-size: 2rem;
         }
 
-        .contact-container {
-          grid-template-columns: 1fr;
-        }
-
-        .logo-img {
-          height: 60px; /* Slightly smaller on mobile */
-        }
-
-        .mobile-logo-img {
-          height: 70px; /* Adjusted for mobile */
-        }
-
-        .pastor-badges {
-          position: static;
-          margin-top: 15px;
-          justify-content: center;
+        .cta-container {
+          flex-direction: column;
+          align-items: center;
         }
 
         .highlight {
@@ -1079,9 +1038,20 @@
           text-align: center;
         }
 
-        .cta-container {
-          flex-direction: column;
-          align-items: center;
+        .bio-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .certification-details {
+          grid-template-columns: 1fr;
+        }
+
+        .service-content {
+          padding: 0 20px 20px;
+        }
+
+        .service-cta {
+          padding-top: 15px;
         }
       }
 
@@ -1094,39 +1064,30 @@
           padding: 12px 25px;
         }
 
-        .logo-img {
-          height: 50px; /* Adjusted for small mobile */
+        .contact-form {
+          padding: 25px;
         }
 
-        .mobile-logo-img {
-          height: 60px; /* Adjusted for small mobile */
+        .certification-logo {
+          max-width: 250px;
         }
 
-        nav {
-          padding: 8px 0; /* Slightly more padding on mobile */
+        .mobile-menu {
+          width: 85%;
         }
 
-        .hero {
-          padding: 120px 0 60px; /* Adjusted for mobile */
-        }
-
-        .service-icon {
-          font-size: 2rem;
-        }
-
-        .modal-content {
-          padding: 20px;
-          margin: 10% auto;
+        .mobile-nav-link {
+          font-size: 1.1rem;
+          padding: 12px 15px;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Navigation - LARGER LOGO -->
+    <!-- Navigation -->
     <nav>
       <div class="container nav-container">
         <div class="logo-container">
-          <!-- Logo is now a link to the landing page -->
           <a href="#hero" class="logo-link">
             <img
               src="assets/logo.png"
@@ -1141,7 +1102,6 @@
           <a href="#pastor" class="nav-link">About</a>
           <a href="#certification" class="nav-link">Certification</a>
           <a href="#process" class="nav-link">How It Works</a>
-          <a href="#faq" class="nav-link">FAQ</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
         <button class="menu-toggle">
@@ -1150,29 +1110,30 @@
       </div>
     </nav>
 
-    <!-- Mobile Menu - LARGER LOGO -->
+    <!-- Mobile Menu - REDESIGNED -->
     <div class="mobile-menu" id="mobile-menu">
       <button class="close-menu">
         <i class="fas fa-times"></i>
       </button>
-      <div class="mobile-logo">
-        <!-- Mobile logo is also a link to the landing page -->
-        <a href="#hero" class="mobile-logo-link">
-          <img
-            src="assets/logo.png"
-            alt="Julius Amoah Logo"
-            class="mobile-logo-img"
-          />
-        </a>
-      </div>
       <div class="mobile-nav-links">
-        <a href="#welcome" class="mobile-nav-link">Welcome</a>
-        <a href="#services" class="mobile-nav-link">Services</a>
-        <a href="#pastor" class="mobile-nav-link">About</a>
-        <a href="#certification" class="mobile-nav-link">Certification</a>
-        <a href="#process" class="mobile-nav-link">How It Works</a>
-        <a href="#faq" class="mobile-nav-link">FAQ</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="#welcome" class="mobile-nav-link"
+          ><i class="fas fa-home"></i> Welcome</a
+        >
+        <a href="#services" class="mobile-nav-link"
+          ><i class="fas fa-concierge-bell"></i> Services</a
+        >
+        <a href="#pastor" class="mobile-nav-link"
+          ><i class="fas fa-user"></i> About</a
+        >
+        <a href="#certification" class="mobile-nav-link"
+          ><i class="fas fa-certificate"></i> Certification</a
+        >
+        <a href="#process" class="mobile-nav-link"
+          ><i class="fas fa-list-ol"></i> How It Works</a
+        >
+        <a href="#contact" class="mobile-nav-link"
+          ><i class="fas fa-envelope"></i> Contact</a
+        >
       </div>
     </div>
 
@@ -1238,9 +1199,7 @@
               <h3 class="service-title">Wedding Ceremonies & Vow Renewals</h3>
               <p>
                 Whether big celebration or intimate elopement, your wedding
-                ceremony should reflect your unique love story. Also offering
-                meaningful vow renewal ceremonies to celebrate your continued
-                journey together.
+                ceremony should reflect your unique love story.
               </p>
               <div class="service-cta">
                 <a href="#contact" class="btn">Inquire About Weddings</a>
@@ -1308,7 +1267,7 @@
     <!-- Pastor Section -->
     <section id="pastor" class="pastor">
       <div class="container">
-        <h2 class="section-title">About Pastor Julius</h2>
+        <h2 class="section-title">Meet Julius Amoah</h2>
 
         <div class="pastor-profile fade-in">
           <div class="pastor-main-image">
@@ -1378,62 +1337,65 @@
                 Married to Lady Millicent Amoah, founder and leader of SHE SOARS
                 women's ministry. Blessed with two children.
               </p>
-
-              <!-- <div class="pastor-quote">
-            <blockquote>
-              "I believe in creating ceremonies that honor your unique story with warmth, respect, and spiritual significance."
-            </blockquote>
-          </div> -->
             </div>
           </div>
         </div>
 
-        <div class="welcome-content fade-in" style="margin-top: 50px">
-          <p>
-            Julius Amoah is the founder of Connect Global Intercession Prayer
-            Hub, International and currently the residing Pastor of New Spring
-            Church, UK chapter.
-          </p>
+        <!-- Bio Cards Section -->
+        <div class="bio-cards fade-in">
+          <div class="bio-card">
+            <h4>
+              <i class="fas fa-graduation-cap"></i> Professional Background
+            </h4>
+            <p>
+              Julius Amoah is a professionally trained celebrant, certified by
+              the Academy of Professional Celebrants, UK. He is qualified to
+              officiate a range of life events including weddings, renewal of
+              vows, funerals, and naming ceremonies.
+            </p>
+            <p>
+              With a warm and compassionate presence, Julius creates meaningful
+              and memorable ceremonies that truly reflect the lives and values
+              of those involved.
+            </p>
+          </div>
 
-          <p>
-            He is a certified bookkeeper and a member of Institute of Certified
-            Bookkeepers UK and he is also a student affiliate of the Association
-            of Certified Chartered Accountants, (ACCA), UK.
-          </p>
+          <div class="bio-card">
+            <h4>
+              <i class="fas fa-certificate"></i> Professional Qualifications
+            </h4>
+            <p>
+              In addition to his celebrant work, Julius is a certified
+              bookkeeper and a proud member of the Institute of Certified
+              Bookkeepers (UK). He is also a student affiliate of the
+              Association of Chartered Certified Accountants (ACCA), UK,
+              showcasing his ongoing commitment to excellence and professional
+              growth.
+            </p>
+          </div>
 
-          <p>
-            He holds a certificate as a professional celebrant for weddings,
-            renewal of vows, funerals, and naming ceremonies, from the Academy
-            of Professional Celebrants, United Kingdom.
-          </p>
+          <div class="bio-card">
+            <h4>
+              <i class="fas fa-hands-helping"></i> Pastoral Role & Approach
+            </h4>
+            <p>
+              Julius serves in a pastoral leadership role at New Springs Church,
+              where his dedication to the emotional and spiritual wellbeing of
+              others shines through. His empathetic approach and genuine care
+              for people make him a trusted choice for families and individuals
+              seeking guidance and support during both life's challenges and
+              celebrations.
+            </p>
+          </div>
 
-          <p>
-            He is a Revivalist and blessed with a strong Teaching grace. He
-            ministers with passion and zest, and he is a firm believer of the
-            death, burial and ascension of the Lord Jesus Christ.
-          </p>
-
-          <p>
-            He is also the Director of JKA Consultancy and Bookkeeping Ltd, an
-            Accounting and Bookkeeping firm registered and located in the United
-            Kingdom.
-          </p>
-
-          <p>
-            Julius is a professionally trained celebrant who creates and
-            conducts personalized ceremonies that reflect your beliefs, values,
-            and story. Whether you're planning a wedding, vow renewal, funeral,
-            or naming ceremony, he works closely with you to craft a meaningful
-            and memorable event.
-          </p>
-
-          <p>
-            With a compassionate approach and attention to detail, Julius
-            ensures that each ceremony is unique and tailored to your specific
-            wishes. He is dedicated to providing a professional, supportive
-            service that helps you celebrate life's important moments with
-            dignity and joy.
-          </p>
+          <div class="bio-card">
+            <h4><i class="fas fa-star"></i> Commitment to Ceremonies</h4>
+            <p>
+              Whether you are planning a joyful wedding, a heartfelt memorial,
+              or a special naming ceremony, Julius brings experience, sincerity,
+              and a deep sense of purpose to every occasion.
+            </p>
+          </div>
         </div>
 
         <div class="cta-container fade-in">
@@ -1443,10 +1405,11 @@
       </div>
     </section>
 
-    <!-- Certification Section -->
+    <!-- Certification Section-->
     <section id="certification" class="certification">
       <div class="container">
         <h2 class="section-title">Professional Certification</h2>
+
         <div class="certification-content fade-in">
           <p>
             I am proud to be trained and accredited by The Academy of
@@ -1454,12 +1417,14 @@
             creation and delivery.
           </p>
 
-          <img
-            src="assets/certLogo.webp"
-            alt="Academy of Professional Celebrants"
-            class="certification-logo"
-            onerror="this.src='https://placehold.co/600x400/0b5fb0/white?text=Academy+of+Professional+Celebrants'"
-          />
+          <div class="certification-logo-container">
+            <img
+              src="assets/certLogo.webp"
+              alt="Academy of Professional Celebrants"
+              class="certification-logo"
+              onerror="this.src='https://placehold.co/600x400/0b5fb0/white?text=Academy+of+Professional+Celebrants'"
+            />
+          </div>
 
           <p>
             The Academy of Professional Celebrants is a leading training
@@ -1467,11 +1432,35 @@
             training and ongoing support to ensure excellence in celebrant
             services.
           </p>
+        </div>
 
-          <p>
-            As an accredited member, I adhere to their code of ethics and
-            maintain full public liability insurance for your peace of mind.
-          </p>
+        <div class="certification-details fade-in">
+          <div class="certification-card">
+            <i class="fas fa-award"></i>
+            <h3>Fully Accredited</h3>
+            <p>
+              I am fully trained, accredited, and insured through The Academy of
+              Professional Celebrants.
+            </p>
+          </div>
+
+          <div class="certification-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Code of Ethics</h3>
+            <p>
+              I adhere to a strict code of ethics and maintain full public
+              liability insurance for your peace of mind.
+            </p>
+          </div>
+
+          <div class="certification-card">
+            <i class="fas fa-handshake"></i>
+            <h3>Professional Standards</h3>
+            <p>
+              I uphold the highest professional standards and proudly support
+              equality, diversity, and inclusion.
+            </p>
+          </div>
         </div>
 
         <div class="cta-container fade-in">
@@ -1524,131 +1513,10 @@
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
-      <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="welcome-content" style="margin-bottom: 50px">
-          Find answers to common questions about celebrant services and ceremony
-          planning.
-        </p>
-
-        <div class="faq-container">
-          <div class="faq-item fade-in">
-            <div class="faq-question">
-              <span>What is the role of a celebrant?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>
-                A celebrant is a trained professional who creates and conducts
-                personalized ceremonies for weddings, funerals, namings, and
-                other life events. Unlike religious officiants, celebrants craft
-                ceremonies that reflect your personal beliefs, values, and
-                story, whether they include religious elements or are entirely
-                secular.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-question">
-              <span>How far in advance should I book a celebrant?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>
-                It's best to book as early as possible, especially for weddings
-                (6-12 months in advance is ideal). For funerals, I am available
-                at short notice to provide compassionate and timely services.
-                Availability can vary, so I recommend contacting me as soon as
-                you know your date or approximate timeframe.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-question">
-              <span>Can you help us write our vows or ceremony script?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>
-                Absolutely. I will guide you through the process of creating
-                meaningful vows and a ceremony script that truly represents you.
-                I provide questionnaires, examples, and personalized suggestions
-                to help you express your feelings and commitments in a way that
-                feels authentic to you.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-question">
-              <span>Are your ceremonies legally binding?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <!-- <p>
-                In England and Wales, celebrant-led weddings, regardless of
-                whether you’re an opposite-sex or same-sex couple, are
-                ceremonial only and are not legally binding on their own. You'll
-                still need to complete the legal formalities at your local
-                registry office (often via a brief “2+2” ceremony) to make your
-                marriage official. However, in Scotland and Northern Ireland,
-                celebrant or humanist-led weddings are legally recognized.
-                Regardless of jurisdiction or legal status, all ceremonies I
-                conduct are meaningful and deeply personalized. I’m here to
-                support you with both the legal aspects and your heartfelt
-                celebration.
-              </p> -->
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-question">
-              <span>What areas do you serve?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <!-- <p>
-                I primarily serve clients across the United Kingdom. I'm based
-                in [Your Location] but am available to travel to your chosen
-                venue. Travel expenses may apply for locations beyond a certain
-                distance, which we can discuss during our consultation.
-              </p> -->
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-question">
-              <span>What is included in your fees?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <!-- <p>
-                My fees typically include an initial consultation, all planning
-                meetings, personalized ceremony script writing, rehearsal
-                guidance (for weddings), officiating on the day, and a keepsake
-                copy of your ceremony. Additional expenses such as travel may
-                apply depending on your location. I offer transparent pricing
-                and will provide a detailed quote after our initial discussion.
-              </p> -->
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-cta fade-in">
-          <p>Have more questions? I'm here to help.</p>
-          <a href="#contact" class="btn">Contact Me</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- Contact Section - REDESIGNED -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2 class="section-title" style="color: white">Contact</h2>
+        <h2 class="section-title" style="color: white">Get In Touch</h2>
         <p class="welcome-content" style="color: white; margin-bottom: 50px">
           Let's Create Something Beautiful Together. Whether you're ready to
           book or just exploring options, I'd love to hear from you.
@@ -1689,26 +1557,13 @@
                 <textarea id="message" class="form-control" required></textarea>
               </div>
 
-              <div class="form-group">
-                <div style="font-size: 0.9rem; margin-top: 10px">
-                  By submitting this form, you agree to our
-                  <a
-                    href="#"
-                    class="contact-link"
-                    style="color: var(--secondary)"
-                    id="privacyLink"
-                    >Privacy Policy</a
-                  >
-                </div>
-              </div>
-
               <button type="submit" class="btn btn-submit">Send Message</button>
             </form>
           </div>
 
           <div class="contact-info fade-in">
             <h3 style="font-size: 1.8rem; margin-bottom: 30px">
-              Get in Touch Directly
+              Contact Information
             </h3>
 
             <div class="contact-detail">
@@ -1744,30 +1599,6 @@
               <i class="fab fa-whatsapp whatsapp-icon"></i>
               Message on WhatsApp
             </a>
-
-            <!-- <div class="social-links">
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                class="social-link"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="https://twitter.com/" target="_blank" class="social-link"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                class="social-link"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                class="social-link"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div> -->
           </div>
         </div>
       </div>
@@ -1784,140 +1615,11 @@
         </p>
 
         <div class="footer-links">
-          <a href="#" class="footer-link" id="footerPrivacyLink"
-            >Privacy Policy</a
-          >
+          <a href="#" class="footer-link">Privacy Policy</a>
           <a href="#contact" class="footer-link">Contact</a>
-          <a href="#faq" class="footer-link">FAQ</a>
         </div>
       </div>
     </footer>
-
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="modal">
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2>Privacy Policy</h2>
-
-        <h3>1. Introduction</h3>
-        <p>
-          Julius Amoah ("us", "we", or "our") operates the
-          https://www.juliusamoahcelebrant.com website (the "Service").
-        </p>
-        <p>
-          This page informs you of our policies regarding the collection, use,
-          and disclosure of personal data when you use our Service and the
-          choices you have associated with that data.
-        </p>
-
-        <h3>2. Information Collection and Use</h3>
-        <p>
-          We collect several different types of information for various purposes
-          to provide and improve our Service to you.
-        </p>
-
-        <h3>3. Types of Data Collected</h3>
-        <h4>Personal Data</h4>
-        <p>
-          While using our Service, we may ask you to provide us with certain
-          personally identifiable information that can be used to contact or
-          identify you ("Personal Data"). Personally identifiable information
-          may include, but is not limited to:
-        </p>
-        <ul>
-          <li>Email address</li>
-          <li>First name and last name</li>
-          <li>Phone number</li>
-          <li>Address, State, Province, ZIP/Postal code, City</li>
-          <li>Cookies and Usage Data</li>
-        </ul>
-
-        <h3>4. Use of Data</h3>
-        <p>Julius Amoah uses the collected data for various purposes:</p>
-        <ul>
-          <li>To provide and maintain the Service</li>
-          <li>To notify you about changes to our Service</li>
-          <li>
-            To allow you to participate in interactive features of our Service
-            when you choose to do so
-          </li>
-          <li>To provide customer care and support</li>
-          <li>
-            To provide analysis or valuable information so that we can improve
-            the Service
-          </li>
-          <li>To monitor the usage of the Service</li>
-          <li>To detect, prevent and address technical issues</li>
-        </ul>
-
-        <h3>5. Transfer of Data</h3>
-        <p>
-          Your information, including Personal Data, may be transferred to - and
-          maintained on — computers located outside of your state, province,
-          country or other governmental jurisdiction where the data protection
-          laws may differ than those from your jurisdiction.
-        </p>
-
-        <h3>6. Disclosure of Data</h3>
-        <p>
-          We may disclose your Personal Data in the good faith belief that such
-          action is necessary to:
-        </p>
-        <ul>
-          <li>To comply with a legal obligation</li>
-          <li>To protect and defend the rights or property of Julius Amoah</li>
-          <li>
-            To prevent or investigate possible wrongdoing in connection with the
-            Service
-          </li>
-          <li>
-            To protect the personal safety of users of the Service or the public
-          </li>
-          <li>To protect against legal liability</li>
-        </ul>
-
-        <h3>7. Security of Data</h3>
-        <p>
-          The security of your data is important to us, but remember that no
-          method of transmission over the Internet, or method of electronic
-          storage is 100% secure. While we strive to use commercially acceptable
-          means to protect your Personal Data, we cannot guarantee its absolute
-          security.
-        </p>
-
-        <h3>8. Service Providers</h3>
-        <p>
-          We may employ third party companies and individuals to facilitate our
-          Service ("Service Providers"), to provide the Service on our behalf,
-          to perform Service-related services or to assist us in analyzing how
-          our Service is used.
-        </p>
-
-        <h3>9. Links to Other Sites</h3>
-        <p>
-          Our Service may contain links to other sites that are not operated by
-          us. If you click on a third party link, you will be directed to that
-          third party's site. We strongly advise you to review the Privacy
-          Policy of every site you visit.
-        </p>
-
-        <h3>10. Changes to This Privacy Policy</h3>
-        <p>
-          We may update our Privacy Policy from time to time. We will notify you
-          of any changes by posting the new Privacy Policy on this page.
-        </p>
-
-        <h3>11. Contact Us</h3>
-        <p>
-          If you have any questions about this Privacy Policy, please contact
-          us:
-        </p>
-        <ul>
-          <li>By email: Julius@jkaconsultancy.co.uk</li>
-          <li>By phone: +44 756 857 0759</li>
-        </ul>
-      </div>
-    </div>
 
     <script>
       // Mobile menu functionality
@@ -1970,87 +1672,34 @@
         fadeElems.forEach((elem) => {
           fadeObserver.observe(elem);
         });
-      });
 
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
 
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return; // Don't scroll for logo link
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
 
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: "smooth",
-            });
-          }
-        });
-      });
-
-      // Form submission handling
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          alert(
-            "Thank you for your message! Julius will be in touch with you soon."
-          );
-          this.reset();
-        });
-
-      // FAQ accordion functionality
-      const faqItems = document.querySelectorAll(".faq-item");
-
-      faqItems.forEach((item) => {
-        const question = item.querySelector(".faq-question");
-
-        question.addEventListener("click", () => {
-          // Close all other items
-          faqItems.forEach((otherItem) => {
-            if (otherItem !== item) {
-              otherItem.classList.remove("active");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+              });
             }
           });
-
-          // Toggle current item
-          item.classList.toggle("active");
         });
-      });
 
-      // Privacy policy modal functionality
-      const privacyModal = document.getElementById("privacyModal");
-      const privacyLink = document.getElementById("privacyLink");
-      const footerPrivacyLink = document.getElementById("footerPrivacyLink");
-      const closeModal = document.querySelector(".close-modal");
-
-      function openPrivacyModal() {
-        privacyModal.style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
-
-      function closePrivacyModal() {
-        privacyModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-
-      privacyLink.addEventListener("click", function (e) {
-        e.preventDefault();
-        openPrivacyModal();
-      });
-
-      footerPrivacyLink.addEventListener("click", function (e) {
-        e.preventDefault();
-        openPrivacyModal();
-      });
-
-      closeModal.addEventListener("click", closePrivacyModal);
-
-      window.addEventListener("click", function (e) {
-        if (e.target === privacyModal) {
-          closePrivacyModal();
-        }
+        // Form submission handling
+        document
+          .getElementById("contactForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert(
+              "Thank you for your message! Julius will be in touch with you soon."
+            );
+            this.reset();
+          });
       });
     </script>
   </body>
